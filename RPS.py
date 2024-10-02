@@ -89,22 +89,14 @@ class App:
         def check():
             global app_chosen_option, user_chosen_option, app_won, user_wins
 
-            print(app_chosen_option, user_chosen_option)
-
             if app_chosen_option == "Rock" and user_chosen_option == "Scissors":
                 app_won = True
-                print("condi 1")
             elif app_chosen_option == "Paper" and user_chosen_option == "Rock":
                 app_won = True
-                print("condi 2")
             elif app_chosen_option == "Scissors" and user_chosen_option == "Paper":
                 app_won = True
-                print("condi 3")
             elif app_chosen_option == user_chosen_option:
                 app_won = "Draw"
-                print("condi 4")
-            else:
-                print("condi 5")
 
             if app_won == False:
                 user_wins += 1
