@@ -40,7 +40,7 @@ class App:
             turn = "X"
 
             for buttons in self.frame2.winfo_children():
-                buttons.configure(state="normal", text="")
+                buttons.configure(state="normal", text="", disabledforeground="gray")
 
             self.again.destroy()
 
@@ -130,7 +130,7 @@ class App:
             # O
 
             # Y-axis
-            if self.c1r1["text"] == self.c2r1["text"] == self.c3r1["text"] == "O":
+            elif self.c1r1["text"] == self.c2r1["text"] == self.c3r1["text"] == "O":
                 self.turn_label.config(text="O Wins: Row 1", fg=blue)
 
                 self.c1r1.config(disabledforeground=blue)
@@ -194,6 +194,7 @@ class App:
                 self.c3r3.config(disabledforeground=blue)
 
                 win()
+
             elif self.c3r1["text"] == self.c2r2["text"] == self.c1r3["text"] == "O":
                 self.turn_label.config(text="O Wins: Diagonal", fg=blue)
 
@@ -201,6 +202,20 @@ class App:
                 self.c2r2.config(disabledforeground=blue)
                 self.c1r3.config(disabledforeground=blue)
 
+                win()
+
+            elif (
+                self.c1r1["text"]
+                and self.c2r1["text"]
+                and self.c3r1["text"]
+                and self.c1r2["text"]
+                and self.c2r2["text"]
+                and self.c3r2["text"]
+                and self.c1r3["text"]
+                and self.c2r3["text"]
+                and self.c3r3["text"]
+            ):
+                self.turn_label.config(text="Draw!", fg="gray")
                 win()
 
         def place(slot):
