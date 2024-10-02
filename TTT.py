@@ -1,6 +1,7 @@
 import tkinter as tk
 
-turn = "X"
+default_turn = "X"
+turn = default_turn
 
 red = "#ff0000"
 blue = "#0000ff"
@@ -37,7 +38,7 @@ class App:
         def reset():
             global turn
 
-            turn = "X"
+            turn = default_turn
 
             for buttons in self.frame2.winfo_children():
                 buttons.configure(state="normal", text="", disabledforeground="gray")
