@@ -33,7 +33,7 @@ class App:
             global user_chosen_option
             user_chosen_option = option
 
-            self.result()
+            self.result_page()
 
         app_choose()
 
@@ -80,7 +80,7 @@ class App:
         )
         self.scissors.grid(column=3, row=0, padx=3)
 
-    def result(self):
+    def result_page(self):
         for i in self.root.winfo_children():
             i.destroy()
 
@@ -121,16 +121,16 @@ class App:
 
         check()
 
-        self.result_label = tk.Label(self.frame3)
+        self.result_page_label = tk.Label(self.frame3)
 
         if app_won == True:
-            self.result_label.config(text="You lost!", fg="#cc8888")
+            self.result_page_label.config(text="You lost!", fg="#cc8888")
         elif app_won == False:
-            self.result_label.config(text="You won!", fg="#00cc00")
+            self.result_page_label.config(text="You won!", fg="#00cc00")
         else:
-            self.result_label.config(text="Draw!", fg="#000000")
+            self.result_page_label.config(text="Draw!", fg="#000000")
 
-        self.result_label.pack(pady=15)
+        self.result_page_label.pack(pady=15)
 
         self.user_chose = tk.Label(self.frame3, text=f"You chose: {user_chosen_option}")
         self.user_chose.pack()
