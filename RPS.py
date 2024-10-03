@@ -101,6 +101,8 @@ class App:
             if app_won == False:
                 user_wins += 1
 
+        check()
+
         def reset():
             global app_chosen_option, user_chosen_option, app_won
 
@@ -116,8 +118,6 @@ class App:
             self.frame3, text=f"Wins: {user_wins}", anchor="nw", width=50
         )
         self.wins1.pack(padx=4, pady=5)
-
-        check()
 
         self.result_label = tk.Label(self.frame3)
 
