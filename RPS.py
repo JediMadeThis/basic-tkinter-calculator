@@ -101,8 +101,6 @@ class App:
             if app_won == False:
                 user_wins += 1
 
-                self.wins1.config(text=f"Wins: {user_wins}")
-
         def reset():
             global app_chosen_option, user_chosen_option, app_won
 
