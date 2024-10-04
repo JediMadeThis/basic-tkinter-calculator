@@ -8,7 +8,7 @@ blue = "#0000ff"
 
 
 class App:
-    def __init__(self, root):
+    def __init__(self, root: tk.Tk) -> None:
         self.root = root
         self.root.geometry("600x620")
         self.root.resizable(False, False)
@@ -16,15 +16,15 @@ class App:
 
         self.game()
 
-    def game(self):
+    def game(self) -> None:
         for i in self.root.winfo_children():
             i.destroy()
 
         def win():
-            for buttons in self.frame2.winfo_children():
-                buttons.configure(state="disabled")
+            for button in self.frame2.winfo_children():
+                button.configure(state="disabled")
 
-            self.again = tk.Button(
+            self.play_again_button = tk.Button(
                 self.frame3,
                 text="Play again",
                 padx=18,
@@ -33,9 +33,9 @@ class App:
                 command=reset,
             )
 
-            self.again.pack(pady=15)
+            self.play_again_button.pack(pady=15)
 
-        def reset():
+        def reset() -> None:
             global turn
 
             turn = default_turn
@@ -43,17 +43,17 @@ class App:
             for buttons in self.frame2.winfo_children():
                 buttons.configure(state="normal", text="", disabledforeground="gray")
 
-            self.again.destroy()
+            self.play_again_button.destroy()
 
             self.turn_label.config(
                 text=f"Turn: {turn}",
                 fg="#ff0000" if turn == "X" else "#0000ff",
             )
 
-        def check():
+        def check() -> None:
             # X
 
-            # Y-axis
+            # X-axis
             if self.c1r1["text"] == self.c2r1["text"] == self.c3r1["text"] == "X":
                 self.turn_label.config(text="X Wins: Row 1", fg=red)
 
@@ -81,7 +81,7 @@ class App:
 
                 win()
 
-            # X-axis
+            # Y-axis
             elif self.c1r1["text"] == self.c1r2["text"] == self.c1r3["text"] == "X":
                 self.turn_label.config(text="X Wins: Column 1", fg=red)
 
@@ -306,12 +306,8 @@ class App:
         )
         self.c3r3.grid(column=3, row=3)
 
-        # Play again button
-
         self.frame3 = tk.Frame(self.root)
         self.frame3.pack()
-
-        check()
 
 
 root = tk.Tk()
