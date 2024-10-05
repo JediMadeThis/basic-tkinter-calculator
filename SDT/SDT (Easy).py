@@ -80,7 +80,6 @@ class App:
         # Option selection
 
         self.select_frame = tk.Frame(self.root)
-        self.select_frame.pack(pady=15)
 
         self.select_label = tk.Label(self.select_frame, text="Find:")
 
@@ -112,6 +111,8 @@ class App:
             command=lambda: select("time"),
         )
 
+        self.select_frame.pack(pady=15)
+
         self.select_label.grid(row=1, column=1, padx=5)
         self.speed_btn.grid(row=1, column=2)
         self.distance_btn.grid(row=1, column=3)
@@ -120,7 +121,6 @@ class App:
         # Inputs
 
         self.input_frame = tk.Frame(self.root)
-        self.input_frame.pack(pady=30)
 
         self.first_label = tk.Label(self.input_frame, width=10, text="Distance")
         self.first_input = tk.Entry(
@@ -128,7 +128,6 @@ class App:
             validate="key",
             validatecommand=(root.register(check_input), "%P"),
         )
-        self.first_equal_label = tk.Label(self.input_frame, text="=", width=5)
 
         self.second_label = tk.Label(self.input_frame, width=10, text="Time")
         self.second_input = tk.Entry(
@@ -136,15 +135,14 @@ class App:
             validate="key",
             validatecommand=(root.register(check_input), "%P"),
         )
-        self.second_equal_label = tk.Label(self.input_frame, text="=", width=5)
+
+        self.input_frame.pack(pady=30)
 
         self.first_label.grid(column=1, row=1)
-        self.first_input.grid(column=3, row=1)
-        self.first_equal_label.grid(column=2, row=1)
+        self.first_input.grid(column=2, row=1)
 
         self.second_label.grid(column=1, row=2)
-        self.second_input.grid(column=3, row=2)
-        self.second_equal_label.grid(column=2, row=2)
+        self.second_input.grid(column=2, row=2)
 
         # Calculation
 
