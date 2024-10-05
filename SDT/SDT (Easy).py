@@ -160,11 +160,6 @@ class App:
         self.calculate_btn.pack()
         self.result_label.pack(pady=8)
 
-        # self.fraction_label = tk.Label(
-        #     self.calculate_frame, font=("Century Gothic", 18)
-        # )
-        # self.fraction_label.pack(pady=5)
-
 
 root = tk.Tk()
 App(root)
