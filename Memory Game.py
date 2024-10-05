@@ -47,6 +47,9 @@ class App:
                 target_pattern.clear()
 
                 self.label.config(text=f"You lost! Score: {score}")
+
+                score = 0
+
                 self.start_btn.config(state="normal")
 
         def set_button_state(state) -> None:
