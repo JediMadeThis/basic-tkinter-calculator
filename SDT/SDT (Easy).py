@@ -5,7 +5,7 @@ result = 0
 
 
 class App:
-    def __init__(self, root: tk.Tk) -> None:
+    def __init__(self, root):
         self.root = root
         self.root.geometry("300x320")
         self.root.title("Speed/Distance/Time Calculator")
@@ -66,7 +66,7 @@ class App:
             self.fraction_label.config(text=result_fraction)
 
         # Input validation
-        def check_input(P):
+        def check_input(P) -> bool:
             if P == "":
                 return True
 
@@ -154,11 +154,12 @@ class App:
         self.calculate_btn = tk.Button(
             self.calculate_frame, text="Calculate", padx=7, pady=5, command=calculate
         )
-        self.calculate_btn.pack()
 
         self.result_label = tk.Label(
             self.calculate_frame, text="0", font=("Century Gothic", 24)
         )
+
+        self.calculate_btn.pack()
         self.result_label.pack(pady=8)
 
         # self.fraction_label = tk.Label(
