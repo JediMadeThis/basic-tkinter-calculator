@@ -71,18 +71,6 @@ class App:
             self.result_label.config(text=result)
             self.fraction_label.config(text=result_fraction)
 
-        # Input validation
-        def check_input(P) -> bool:
-            if P == "":
-                return True
-
-            try:
-                float(P)
-                return True
-
-            except ValueError:
-                return False
-
         # Option selection
 
         self.select_frame = tk.Frame(self.root)
@@ -129,18 +117,10 @@ class App:
         self.input_frame = tk.Frame(self.root)
 
         self.first_label = tk.Label(self.input_frame, width=10, text="Distance")
-        self.first_input = tk.Entry(
-            self.input_frame,
-            validate="key",
-            validatecommand=(root.register(check_input), "%P"),
-        )
+        self.first_input = tk.Entry(self.input_frame)
 
         self.second_label = tk.Label(self.input_frame, width=10, text="Time")
-        self.second_input = tk.Entry(
-            self.input_frame,
-            validate="key",
-            validatecommand=(root.register(check_input), "%P"),
-        )
+        self.second_input = tk.Entry(self.input_frame)
 
         self.input_frame.pack(pady=30)
 
