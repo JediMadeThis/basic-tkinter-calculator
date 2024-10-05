@@ -18,8 +18,12 @@ class App:
             global selected_option
 
             self.__getattribute__(f"{selected_option}_btn").config(state="normal")
+            # Make previous selected one  clickable
+
             selected_option = option
+
             self.__getattribute__(f"{selected_option}_btn").config(state="disabled")
+            # Make selected one NOT clickable
 
             update_input_labels()
 
@@ -40,11 +44,13 @@ class App:
         def calculate():
             global selected_option, result, result_fraction
 
-            f_i = self.first_input.get()
-            s_i = self.second_input.get()
+            first_input = self.first_input.get()
+            second_input = self.second_input.get()
+            # Gets value from the inputs
 
-            first = float(f_i)
-            second = float(s_i)
+            first = float(first_input)
+            second = float(second_input)
+            # Convert those values into float type
 
             match selected_option:
                 case "speed":
