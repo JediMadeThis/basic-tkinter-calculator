@@ -1,12 +1,14 @@
 import tkinter as tk
-import random
+from random import randint
 
 score = 0
 
 colors = ["red", "green", "blue", "yellow"]
 
 target_pattern = []
-current_pattern = []
+current_pattern = ["green", "blue", "green"]
+
+# 2 - 1 = 1
 
 
 class App:
@@ -22,12 +24,13 @@ class App:
         def add_random_color() -> None:
             global colors, target_pattern
 
-            random_color = colors[random.randint(0, 3)]
+            random_color = colors[randint(0, 3)]
             target_pattern.append(random_color)
 
         def add_current_pattern(slot: tk.Button) -> None:
             global current_pattern, target_pattern, score
 
+            # Get button color
             slot_color = slot["activebackground"]
 
             if slot_color == target_pattern[len(current_pattern) - len(target_pattern)]:
@@ -35,6 +38,7 @@ class App:
 
                 if len(current_pattern) == len(target_pattern):
                     set_button_state("disabled")
+
                     score += 1
                     self.label.config(text=f"Score: {score}")
 
@@ -50,17 +54,18 @@ class App:
 
                 score = 0
 
-                self.start_btn.config(state="normal")
+                self.start_btn.config(state="normal")  # normal disabled
 
         def set_button_state(state) -> None:
-            for widget in self.frame2.winfo_children():
+            for button in self.frame2.winfo_children():
 
                 if state == "disabled":
-                    widget.configure(background="#e1e1e1")
-                elif state == "normal":
-                    widget.configure(background="SystemButtonFace")
+                    button.configure(background="#e1e1e1")
 
-                widget.configure(state=state)
+                elif state == "normal":
+                    button.configure(background="SystemButtonFace")
+
+                button.configure(state=state)
 
         def show_target_pattern() -> None:
             global target_pattern
