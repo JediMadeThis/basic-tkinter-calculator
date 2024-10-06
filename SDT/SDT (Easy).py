@@ -42,7 +42,7 @@ class App:
                     self.second_label.config(text="Speed")
 
         def calculate():
-            global selected_option, result, result_fraction
+            global selected_option, result
 
             first_input = self.first_input.get()
             second_input = self.second_input.get()
@@ -69,7 +69,6 @@ class App:
                 # Example: 2.8639567 -> 2.864
 
             self.result_label.config(text=result)
-            self.fraction_label.config(text=result_fraction)
 
         # Option selection
 
